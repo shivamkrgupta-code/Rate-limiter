@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rate Limiter — Live Demo</title>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+  <div style="max-width:600px;margin:0 auto;">
+
+    <!-- Header -->
+    <div style="margin-bottom:32px;">
+      <div class="section-label">Backend Systems Demo</div>
+      <h1 style="font-size:28px;color:#fff;margin-bottom:6px;">Rate Limiter</h1>
+      <p style="color:#555;font-size:13px;">
+        10 req / 60s · Redis-backed ·
+        <span id="algo-label" style="color:var(--green)">Fixed Window</span>
+      </p>
+    </div>
+
+    <!-- Algorithm Selector -->
+    <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;">
+      <button class="algo-btn active" id="btn-fixed-window"   onclick="setAlgo('fixed-window')">Fixed Window</button>
+      <button class="algo-btn"        id="btn-sliding-window" onclick="setAlgo('sliding-window')">Sliding Window</button>
+      <button class="algo-btn"        id="btn-token-bucket"   onclick="setAlgo('token-bucket')">Token Bucket</button>
+    </div>
+
+    <!-- Stats -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;">
+      <div class="stat-box">
+        <div class="stat-number" id="stat-used" style="color:#fff">0</div>
+        <div class="stat-label">Used</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="stat-remaining" style="color:var(--green)">10</div>
+        <div class="stat-label">Left</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="stat-status" style="color:var(--green)">200</div>
+        <div class="stat-label">Status</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="stat-hits" style="color:#fff">0</div>
+        <div class="stat-label">Total</div>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-track" style="margin-bottom:20px;">
+      <div id="progress-fill"></div>
+    </div>
+
+    <!-- Buttons -->
+    <button id="fire-btn" onclick="fireRequest()" style="margin-bottom:10px;">
+      FIRE REQUEST →
+    </button>
+    <button id="burst-btn" onclick="burstFire()">
+      BURST ×10
+    </button>
+
+    <!-- Timer -->
+    <div id="timer-container" style="margin-top:20px;">
+      <div class="section-label" style="color:var(--red)">Window resets in (actual remaining time)</div>
+      <div id="timer-number">60</div>
+      <div class="timer-track"><div id="timer-fill"></div></div>
+      <div style="color:#444;font-size:11px;margin-top:10px;">Button unlocks automatically</div>
+    </div>
+
+    <!-- Log -->
+    <div style="margin-top:28px;">
+      <div class="section-label">Request Log</div>
+      <div id="log" style="display:flex;flex-direction:column;gap:6px;max-height:320px;overflow-y:auto;"></div>
+      <div id="log-empty" style="color:#333;font-size:13px;text-align:center;padding:32px 0;">
+        No requests yet — fire one above
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/timer.js"></script>
+  <script src="/static/js/ui.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

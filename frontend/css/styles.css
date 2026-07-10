@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --green: #00ff87;
+  --red: #ff3b5c;
+  --yellow: #ffd166;
+  --bg: #0a0a0f;
+  --card: #12121a;
+  --border: #1e1e2e;
+  --text: #e0e0e0;
+  --muted: #555;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'JetBrains Mono', monospace; min-height: 100vh; padding: 32px 20px; }
+h1 { font-family: 'Syne', sans-serif; }
+
+.algo-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.algo-btn.active { border-color: var(--green); color: var(--green); box-shadow: 0 0 12px rgba(0,255,135,0.15); }
+.algo-btn:hover:not(.active) { border-color: #444; color: #aaa; }
+
+#fire-btn {
+  width: 100%;
+  padding: 18px;
+  border-radius: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  background: var(--green);
+  color: #000;
+}
+#fire-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,255,135,0.25); }
+#fire-btn:disabled { background: var(--card); color: var(--muted); cursor: not-allowed; border: 1px solid var(--border); }
+#fire-btn.locked { background: var(--red) !important; color: #fff !important; border: none; }
+
+#burst-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--yellow);
+  transition: all 0.15s;
+  letter-spacing: 1px;
+}
+#burst-btn:hover:not(:disabled) { border-color: var(--yellow); box-shadow: 0 0 12px rgba(255,209,102,0.15); }
+#burst-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.progress-track { background: var(--card); border: 1px solid var(--border); border-radius: 4px; height: 8px; overflow: hidden; }
+#progress-fill { height: 100%; border-radius: 4px; transition: width 0.3s ease, background 0.3s ease; background: var(--green); width: 0%; }
+
+.stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; text-align: center; }
+.stat-number { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; }
+.stat-label { color: var(--muted); font-size: 11px; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+#timer-container {
+  background: rgba(255,59,92,0.06);
+  border: 1px solid rgba(255,59,92,0.25);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  display: none;
+}
+#timer-number { font-family: 'Syne', sans-serif; font-size: 72px; font-weight: 800; color: var(--red); line-height: 1; }
+.timer-track { background: rgba(255,59,92,0.15); border-radius: 4px; height: 4px; margin-top: 12px; overflow: hidden; }
+#timer-fill { height: 100%; border-radius: 4px; background: var(--red); transition: width 1s linear; }
+
+.log-entry {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 0.2s ease;
+  flex-wrap: wrap;
+}
+.log-entry.blocked { border-color: rgba(255,59,92,0.3); background: rgba(255,59,92,0.04); }
+.log-entry.burst-summary { border-color: rgba(255,209,102,0.3); background: rgba(255,209,102,0.04); }
+@keyframes slideIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+.badge { font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 700; white-space: nowrap; }
+.badge.allowed { background: rgba(0,255,135,0.12); color: var(--green); }
+.badge.blocked { background: rgba(255,59,92,0.12); color: var(--red); }
+
+.log-algo { font-size: 11px; color: #666; }
+.log-detail { font-size: 11px; color: #555; flex: 1; }
+.log-time { font-size: 10px; color: #444; margin-left: auto; white-space: nowrap; }
+
+.section-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
