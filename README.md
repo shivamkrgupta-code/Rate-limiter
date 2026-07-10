@@ -2,7 +2,7 @@
 
 A production-grade rate limiting service built from scratch — implementing three core algorithms using Redis atomic operations, deployed with Docker on Render.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-rate--limiter--ze9f.onrender.com-00ff87?style=for-the-badge&logo=render&logoColor=white)](https://rate-limiter-ze9f.onrender.com/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-rate--limiter--ce9k.onrender.com-00ff87?style=for-the-badge&logo=render&logoColor=white)](https://rate-limiter-ce9k.onrender.com/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Redis](https://img.shields.io/badge/Redis-7.0-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
 [![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
