@@ -11,7 +11,7 @@ A production-grade rate limiting service built from scratch — implementing thr
 
 ##  Live Demo
 
-**[https://rate-limiter-ze9f.onrender.com/](https://rate-limiter-ce9k.onrender.com/)**
+**[https://rate-limiter-ce9k.onrender.com/](https://rate-limiter-ce9k.onrender.com/)**
 
 > Switch between algorithms, fire requests, trigger a 429, and watch the countdown timer. Use **Burst ×10** to fire 10 simultaneous requests and observe how each algorithm handles the load differently.
 
